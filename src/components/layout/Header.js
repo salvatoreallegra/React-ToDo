@@ -6,8 +6,9 @@ function Header () {
   return (
     <header style={headerStyle}>
       <h1>ToDoList</h1>
-      <BrowserRouter basename='/React-ToDo' />
-      <Link to='/'>Home</Link> |<Link to='/about'> About</Link>
+      {/* <BrowserRouter basename='/React-ToDo' /> */}
+      <Link to={process.env.PUBLIC_URL + '/'}>Home</Link> |
+      <Link to='/about'> About</Link>
     </header>
   )
 }
