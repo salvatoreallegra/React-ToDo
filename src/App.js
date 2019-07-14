@@ -5,17 +5,17 @@ import Todos from './components/Todos'
 import Header from './components/layout/Header'
 import AddTodo from './components/AddTodo'
 import About from './components/pages/about'
-import uuid from 'uuid'
-
+import axios from 'axios'
 class App extends Component {
   state = {
-    todos: [
-      { id: uuid.v4(), title: 'Take out the trash', completed: false },
-      { id: 2, title: 'Lift Weights', completed: false },
-      { id: 3, title: 'Call DMV', completed: false }
-    ]
+    todos: []
   }
 
+  componentDidMount () {
+    axios
+      .get('https://jsonplaceholder.typicode.com/todos?_limit=10')
+      .then(res => this.setState({ todos: res.data }))
+  }
   // Mark or unmark a todo complete
   markComplete = id => {
     this.setState({
@@ -38,12 +38,12 @@ class App extends Component {
   // Add a todo
 
   addTodo = title => {
-    const newTodo = {
-      id: uuid.v4(),
-      title: title,
-      completed: false
-    }
-    this.setState({ todos: [...this.state.todos, newTodo] })
+    axios
+      .post('https://jsonplaceholder.typicode.com/todos', {
+        title,
+        completed: false
+      })
+      .then(res => this.setState({ todos: [...this.state.todos, res.data] }))
   }
 
   render () {
