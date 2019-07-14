@@ -5,6 +5,9 @@ import PropTypes from 'prop-types'
 class TodoItem extends Component {
   getStyle = () => {
     return {
+      background: 'lightgray',
+      padding: '10px',
+      borderBottom: '1px red dotted',
       textDecoration: this.props.todo.completed ? 'line-through' : 'none'
     }
   }
