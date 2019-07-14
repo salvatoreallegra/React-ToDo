@@ -57,7 +57,7 @@ class App extends Component {
             <Header />
             <Route
               exact
-              path='/'
+              path={process.env.PUBLIC_URL + '/'}
               render={props => (
                 <React.Fragment>
                   <AddTodo addTodo={this.addTodo} />
