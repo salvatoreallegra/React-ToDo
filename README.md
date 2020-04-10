@@ -11,7 +11,9 @@ You need node.js installed
 ```bash
 # Clone the Repo
 git clone https://github.com/salvatoreallegra/React-ToDo.git
-npm or npx or yarn install to install node modules
+# Install Node modules
+npm or npx or yarn install
+# Run the app
 navigate to localhost:3000
 ```
 
